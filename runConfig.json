@@ -1,0 +1,22 @@
+{
+  "packName": "Zerblands",
+  "packId": "zerblands",
+  "version": "2.3.0",
+  "debug": false,
+  "classes": [
+    "classes/",
+    "classes/Packmode.groovy",
+    "classes/Global.groovy"
+  ],
+  "loaders": {
+    "preInit": [
+      "preInit/"
+    ],
+    "init": [
+      "init/"
+    ],
+    "postInit": [
+      "postInit/"
+    ]
+  }
+}

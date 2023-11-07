@@ -1,0 +1,10 @@
+packmodemenu.options.save=Save
+packmodemenu.options.cancel=Cancel
+packmodemenu.options.current=current
+packmodemenu.options.warning.restart=After saving you have to reload the recipes\nfor the changes to take effect. You can do so by\npressing STRG+R. This only works thanks to GroovyScript.
+packmodemenu.packmode.name.normal=§3Normal§r
+packmodemenu.packmode.desc.normal=The simple default packmode.
+packmodemenu.packmode.name.expert=§4Expert§r
+packmodemenu.packmode.desc.expert=In this packmode things get spicy.
+packmodemenu.packmode.name.skyblock=§5Skyblock§r
+packmodemenu.packmode.desc.skyblock=Wanna play Skyblock?
