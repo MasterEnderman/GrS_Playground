@@ -8,6 +8,7 @@ import net.minecraftforge.event.world.BlockEvent
 import Packmode
 import Util
 
+// informs the player which packmode was loaded once the player reloads the registries
 eventManager.listen({ ScriptRunEvent.Post event -> {
     if (FMLCommonHandler.instance().getMinecraftServerInstance() == null) { return; }
     for (EntityPlayerMP player : FMLCommonHandler.instance().getMinecraftServerInstance().getPlayerList().getPlayers()) {
@@ -16,16 +17,19 @@ eventManager.listen({ ScriptRunEvent.Post event -> {
     }
 }})
 
+// the following event is only checked, when the selected packmode is "expert"
 if (!Packmode.check(Global.EXPERT)) { return; }
 
 blacklist = [
     block('minecraft:stone'),
     block('minecraft:planks'),
 ]
-
+// cancels the block break event of the block listed in the blacklist above
 eventManager.listen({ BlockEvent.BreakEvent event -> {
     if (event.getState().getBlock() in blacklist) {
-        event.setCanceled(true) // Many events can be canceled.
-        event.player.sendMessage(new TextComponentString("Breaking ${event.getState().getBlock().getLocalizedName()} is forbidden."))
+        event.setCanceled(true)
+        event.player.sendMessage(
+            new TextComponentString("Breaking ${event.getState().getBlock().getLocalizedName()} is forbidden.")
+        )
     }
 }})

@@ -9,33 +9,34 @@ crafting.addShaped(item('minecraft:dirt') * 3, [
 
 crafting.removeByOutput(item('minecraft:diamond_pickaxe'))
 
-crafting.shapedBuilder()                    // create a new shaped recipe
-    // .name('balanced_clay')              // name the recipe 'balanced_clay'
-    .output(item('minecraft:stone') * 32)      // output 32 clay
-    .matrix('NIN',                      // create the layout for the recipe
-            'DSD',                      // each character represents a slot
+crafting.shapedBuilder()
+    .name('balanced_clay')
+    .output(item('minecraft:stone') * 32)
+    .matrix('NIN',
+            'DSD',
             'NIN')
-    .key('N', Global.MC.piston)  // everywhere there is an 'N' in the layout, use a nether star
-    .key('I', ore('ingotIron'))               // all 'I' characters are iron ingots
-    .key('D', item('minecraft:diamond'))      // all 'D' characters are diamonds
-    .key('S', ore('stone'))                   // all 'I' characters are stone
-    .register()                         // register the recipe
+    .key('N', Global.MC.piston
+    .key('I', ore('ingotIron'))
+    .key('D', item('minecraft:diamond'))
+    .key('S', ore('stone'))
+    .register()
 
+// the following recipe only loads, when the selected Packmode is "expert"
 if (Packmode.check(Global.EXPERT)) {
-    crafting.shapedBuilder()                    // create a new shaped recipe
-        // .name('balanced_clay')              // name the recipe 'balanced_clay'
-        .output(item('minecraft:clay') * 32)      // output 32 clay
-        .matrix('NIN',                      // create the layout for the recipe
-                'DSD',                      // each character represents a slot
+    crafting.shapedBuilder()
+        .name('balanced_clay_expert')
+        .output(item('minecraft:clay') * 32)
+        .matrix('NIN',
+                'DSD',
                 'NIN')
-        .key('N', item('minecraft:nether_star'))  // everywhere there is an 'N' in the layout, use a nether star
-        .key('I', ore('ingotIron'))               // all 'I' characters are iron ingots
-        .key('D', item('minecraft:diamond'))      // all 'D' characters are diamonds
-        .key('S', ore('stone'))                   // all 'I' characters are stone
-        .register()                         // register the recipe
-
+        .key('N', item('minecraft:nether_star'))
+        .key('I', ore('ingotIron'))
+        .key('D', item('minecraft:diamond'))
+        .key('S', ore('stone'))
+        .register()
 }
 
+// the following recipe only loads, when the selected packmode is either "expert" or "skyblock"
 if (!Packmode.check([Global.EXPERT, Global.SKYBLOCK])) return
 
 crafting.addShaped(item('minecraft:clay_ball') * 3, [
