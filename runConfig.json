@@ -4,6 +4,7 @@
   "version": "2.3.0",
   "debug": false,
   "classes": [
+    "variables/",
     "classes/",
     "classes/Packmode.groovy",
     "classes/Global.groovy"

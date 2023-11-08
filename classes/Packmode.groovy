@@ -9,9 +9,11 @@ public class Packmode {
     public static Side side() {
         return NetworkUtils.isDedicatedClient() ? Side.CLIENT : Side.SERVER;
     }
+
     public static String[] getWhitelist() {
         return whitelist;
     }
+
     public static String get() {
         if (side() == Side.SERVER ) {
             return PMConfig.getPackMode();
@@ -22,17 +24,19 @@ public class Packmode {
         configuration.load();
         return configuration.get("general", "packMode", "normal").getString();
     }
+
     public static String getSide() {
         return side().name()
     }
+
+    public static String getPackmode() {
+        return get().toUpperCase()
+    }
+
     public static boolean check(String packmode) {
-        // Log.info("---Checking Packmode---");
-        // Log.info("- > To Check: {}", packmode);
-        // Log.info("- > Whitelist? {}", (packmode in getWhitelist()));
-        // Log.info("- > Packmode? {}", (packmode == get()));
-        // Log.info("---Finished Checking---");
         return ((packmode in getWhitelist()) && (packmode == get())) ? true : false;
     }
+
     public static boolean check(ArrayList<String> packmodes) {
         for (String packmode : packmodes) {
             if (check(packmode)) { return true; }
