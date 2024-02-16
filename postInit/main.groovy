@@ -15,7 +15,7 @@ crafting.shapedBuilder()
     .matrix('NIN',
             'DSD',
             'NIN')
-    .key('N', Global.MC.piston
+    .key('N', Global.MC.piston)
     .key('I', ore('ingotIron'))
     .key('D', item('minecraft:diamond'))
     .key('S', ore('stone'))
